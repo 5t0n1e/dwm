@@ -1,5 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
+/* alt-tab configuration */
+static const unsigned int tabModKey 		= 0x40;	/* if this key is hold the alt-tab functionality stays acitve. This key must be the same as key that is used to active functin altTabStart `*/
+static const unsigned int tabCycleKey 		= 0x17;	/* if this key is hit the alt-tab program moves one position forward in clients stack. This key must be the same as key that is used to active functin altTabStart */
+static const unsigned int tabPosY 			= 1;	/* tab position on Y axis, 0 = bottom, 1 = center, 2 = top */
+static const unsigned int tabPosX 			= 1;	/* tab position on X axis, 0 = left, 1 = center, 2 = right */
+static const unsigned int maxWTab 			= 600;	/* tab menu width */
+static const unsigned int maxHTab 			= 200;	/* tab menu height */
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -82,6 +90,7 @@ static const char *firefox[] = { "firefox" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	/* Standard shortkeys */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,         			    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,         			    XK_w,	   spawn,          {.v = firefox } },
@@ -116,10 +125,13 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_exclam,					7)
 	TAGKEYS(                        XK_ccedilla,				8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	/* Vanity gapps Shortkeys */
 	{ MODKEY,              			XK_u,      incrgaps,       {.i = +1 } },
 	{ MODKEY|ShiftMask,    			XK_u,      incrgaps,       {.i = -1 } },
 	{ MODKEY,              			XK_g,      togglegaps,     {0} },
 	{ MODKEY|ShiftMask,    			XK_d,      defaultgaps,    {0} },
+	/* Alt-Tab shortkeys */
+	{ Mod1Mask,             		XK_Tab,    altTabStart,	   {0} },
 };
 
 /* button definitions */
