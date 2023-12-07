@@ -88,6 +88,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *firefox[] = { "firefox" };
 
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Standard shortkeys */
@@ -132,6 +133,13 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,    			XK_d,      defaultgaps,    {0} },
 	/* Alt-Tab shortkeys */
 	{ Mod1Mask,             		XK_Tab,    altTabStart,	   {0} },
+	/* Sound control */
+	{ MODKEY,						XK_F1,	   spawn,		   SHCMD("volume mute") },
+	{ MODKEY,						XK_F2,	   spawn,		   SHCMD("volume down") },
+	{ MODKEY,						XK_F3,	   spawn,		   SHCMD("volume up") },
+	/* Brightness control */
+	{ MODKEY,						XK_F7,	   spawn,		   SHCMD("brightness down") },
+	{ MODKEY,						XK_F8,	   spawn,		   SHCMD("brightness up") },
 };
 
 /* button definitions */
